@@ -11,9 +11,6 @@ namespace Helicopter
     [Tooltip("Called whenever the value of the input axis changes.")]
     public FloatEvent OnChange;
 
-    private void FixedUpdate()
-    {
-      OnChange?.Invoke(Input.GetAxis(AxisName));
-    }
+    private void FixedUpdate() => OnChange?.Invoke(Input.GetAxis(AxisName));
   }
 }

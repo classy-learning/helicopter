@@ -4,10 +4,16 @@ namespace Helicopter
 
   public class Rotor : MonoBehaviour
   {
+    [Tooltip("The amount of lift generated per radian per second.")]
+    public float Lift = 1;
+
     public Rigidbody Driveshaft;
 
-    
-    // TODO: convert angular velocity of rigidbody into RPM
-    // TODO: use RPM to apply upward force to rigidbody in local space
+    private void FixedUpdate() => Driveshaft.AddForce(
+      transform.up *
+      Driveshaft.angularVelocity.magnitude *
+      Lift *
+      Time.fixedDeltaTime
+    );
   }
 }
