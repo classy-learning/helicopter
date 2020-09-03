@@ -4,6 +4,11 @@ namespace Helicopter
 
   public class Throttle : MonoBehaviour
   {
-    // TODO: use input to control motor
+    private float input;
+    public float Value
+    {
+      get => input;
+      set => input = Mathf.Clamp01(value);
+    }
   }
 }

@@ -2,6 +2,7 @@ namespace Helicopter
 {
   public interface IExplosive
   {
-    void Explode();
+    bool IsExploded { get; }
+    bool Explode();
   }
 }
